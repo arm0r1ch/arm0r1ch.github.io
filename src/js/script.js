@@ -68,7 +68,7 @@ function fetchItems() {
         <div class="catalog-item">
           <div class="catalog-item__wrapper">
             <div class="catalog-item__front catalog-item__front_active">
-              <img src="${item.img}" class="catalog-item__img">
+              <img src="${item.img}" alt="img" class="catalog-item__img">
               <div class="catalog-item__subtitle">${item.subtitle}</div>
               <div class="catalog-item__descr">${item.descr}</div>
               <a href="#" class="catalog-item__link">Подробнее</a>

@@ -130,43 +130,41 @@ function createPDF(product) {
     const buyerINN = document.getElementById('buyerINN').value;
     const buyerKPP = document.getElementById('buyerKPP').value;
 
-    const totalSum = product.price; // Используем цену выбранного товара вместо общей суммы
+    const totalSum = product.total; // Используем сумму выбранного товара
 
-  
-
-  const docDefinition = {
-    content: [
-      { text: 'Внимание! Оплата данного счета означает согласие с условиями поставки товара. Уведомление об оплате  обязательно, в противном случае не гарантируется наличие товара на складе. Товар отпускается по факту прихода денег на р/с Поставщика, самовывозом, при наличии доверенности и паспорта.'},
-      { text: 'Счет на оплату № 1 от ' + new Date().toLocaleDateString() + ' г.', style: 'header' },
-      { text: 'Поставщик: Общество с ограниченной ответственностью "ИНТЕЛ-ПРОФИ", ИНН 1234567890, тел.: 123-45-67', style: 'subheader' },
-      { text: 'Покупатель: ' + buyerName + ', ИНН ' + buyerINN + ', КПП ' + buyerKPP + ', ' + buyerAddress + ', тел.: ' + buyerPhone, style: 'subheader' },
-      {
-        style: 'table',
-        table: {
-          widths: ['*', '*', '*', '*', '*'],
-          body: [
-            [{ text: '№', style: 'tableHeader' }, { text: 'Товар', style: 'tableHeader' }, { text: 'Кол-во', style: 'tableHeader' }, { text: 'Ед.', style: 'tableHeader' }, { text: 'Сумма', style: 'tableHeader' }],
-            ...items.map((item, index) => [index + 1, item.name, item.quantity, item.unit, item.total]),
-            [{ text: 'Итого:', colSpan: 4, alignment: 'right' }, {}, {}, {}, totalSum + ' руб.']
-          ] 
+    const docDefinition = {
+        content: [
+            { text: 'Внимание! Оплата данного счета означает согласие с условиями поставки товара. Уведомление об оплате обязательно, в противном случае не гарантируется наличие товара на складе. Товар отпускается по факту прихода денег на р/с Поставщика, самовывозом, при наличии доверенности и паспорта.'},
+            { text: 'Счет на оплату № 1 от ' + new Date().toLocaleDateString() + ' г.', style: 'header' },
+            { text: 'Поставщик: Общество с ограниченной ответственностью "ИНТЕЛ-ПРОФИ", ИНН 1234567890, тел.: 123-45-67', style: 'subheader' },
+            { text: 'Покупатель: ' + buyerName + ', ИНН ' + buyerINN + ', КПП ' + buyerKPP + ', ' + buyerAddress + ', тел.: ' + buyerPhone, style: 'subheader' },
+            {
+                style: 'table',
+                table: {
+                    widths: ['*', '*', '*', '*', '*'],
+                    body: [
+                        [{ text: '№', style: 'tableHeader' }, { text: 'Товар', style: 'tableHeader' }, { text: 'Кол-во', style: 'tableHeader' }, { text: 'Ед.', style: 'tableHeader' }, { text: 'Сумма', style: 'tableHeader' }],
+                        [1, product.name, product.quantity, product.unit, product.total],
+                        [{ text: 'Итого:', colSpan: 4, alignment: 'right' }, {}, {}, {}, totalSum + ' руб.']
+                    ]
+                }
+            },
+            { text: 'Без налога (НДС)', style: 'subheader' },
+            { text: 'Всего наименований 1, на сумму ' + totalSum + ' руб.', style: 'subheader' },
+            { text: 'Руководитель: ________________', style: 'signature' },
+            { text: 'Бухгалтер: ________________', style: 'signature' }
+        ],
+        styles: {
+            header: { fontSize: 16, bold: true, margin: [0, 0, 0, 10] },
+            subheader: { fontSize: 12, margin: [0, 10, 0, 5] },
+            tableHeader: { fontSize: 12, bold: true, fillColor: '#eeeeee' },
+            table: { margin: [0, 20, 0, 20] },
+            signature: { fontSize: 12, margin: [0, 30, 0, 5] }
         }
-      },
-      { text: 'Без налога (НДС)', style: 'subheader' },
-      { text: 'Всего наименований ' + items.length + ', на сумму ' + totalSum + ' руб.', style: 'subheader' },
-      { text: 'Руководитель: ________________', style: 'signature' },
-      { text: 'Бухгалтер: ________________', style: 'signature' }
-    ],
-    styles: {
-      header: { fontSize: 16, bold: true, margin: [0, 0, 0, 10] },
-      subheader: { fontSize: 12, margin: [0, 10, 0, 5] },
-      tableHeader: { fontSize: 12, bold: true, fillColor: '#eeeeee' },
-      table: { margin: [0, 20, 0, 20] },
-      signature: { fontSize: 12, margin: [0, 30, 0, 5] }
-    }
-  };
+    };
 
-  pdfMake.createPdf(docDefinition).download('invoice.pdf');
-  closeModal();
+    pdfMake.createPdf(docDefinition).download('invoice.pdf');
+    closeModal();
 }
 
 window.onload = fetchItems;

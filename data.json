@@ -1,4 +1,3 @@
-{
     "products": [{
             "img": "/img/server.png",
             "subtitle": "Сервер DELL TF-3",
@@ -78,4 +77,3 @@
             "newPrice": "480 000 руб."
         }
     ]
-}

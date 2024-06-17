@@ -1,0 +1,191 @@
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        &__official {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        &__contacts {
+            margin-top: 10px;
+            a {
+                margin-bottom: 10px;
+            }
+        }
+        &__logo {
+            width: auto;
+        }
+    }
+    .promo {
+        &__wrapper {
+            align-items: center;
+            margin-top: 65px;
+        }
+        &__header {
+            text-align: center;
+            font-size: 35px;
+        }
+        &__subheader {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        &__icons {
+            display: flex;
+            width: 400px;
+            margin-top: 25px;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+            flex-direction: row;
+        }
+        &__icon {
+            width: 100px;
+            &:nth-child(2) {
+                margin: 20px 0 20px;
+            }
+        }
+    }
+    .benefits {
+        &__block {
+            width: 230px;
+        }
+    }
+    .consultation {
+        &__descr {
+            text-align: center;
+        }
+        .feed-form {
+            width: auto;
+            align-items: center;
+            input {
+                width: 300px;
+                text-align: center;
+            }
+        }
+    }
+    .button {
+        &_main {
+            width: 300px;
+        }
+        &_submit {
+            width: 300px;
+        }
+    }
+    .title {
+        text-align: center;
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 575px) {
+    .header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        &__logo {
+            width: auto;
+        }
+        &__official {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        &__contacts {
+            margin-top: 10px;
+            a {
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .promo {
+        &__wrapper {
+            align-items: center;
+            margin-top: 65px;
+        }
+        &__header {
+            text-align: center;
+            font-size: 25px;
+        }
+        &__subheader {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        &__icons {
+            width: 300px;
+            margin-top: 25px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            flex-direction: row;
+        }
+        &__icon {
+            width: 100px;
+            &:nth-child(2) {
+                margin: 20px 0 20px;
+            }
+        }
+    }
+    .benefits {
+        &__content {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+        &__block {
+            margin-top: 30px;
+        }
+    }
+    .consultation {
+        &__descr {
+            text-align: center;
+        }
+        .feed-form {
+            width: auto;
+            align-items: center;
+            input {
+                width: 300px;
+                text-align: center;
+            }
+        }
+    }
+    .carousel {
+        &__inner {
+            width: 320px;
+        }
+    }
+    .slick-slide img {
+        width: 43%;
+    }
+    .catalog {
+        &__tab {
+            width: 120px;
+            font-size: 12px;
+        }
+    }
+    .button {
+        &_main {
+            width: 300px;
+        }
+        &_submit {
+            width: 300px;
+        }
+    }
+    .title {
+        text-align: center;
+        font-size: 25px;
+    }
+    .footer__info {
+        width: 100%;
+    }
+    .modal {
+        &__close {
+            right: 10px;
+            top: 10px;
+        }
+    }
+}

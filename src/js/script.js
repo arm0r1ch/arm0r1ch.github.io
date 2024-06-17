@@ -34,7 +34,7 @@ $(document).ready(function() {
 let items = [];
 
 function fetchItems() {
-  fetch('http://localhost:3000/products')
+  fetch('https://arm0r1ch.github.io/data.json')
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok ' + response.statusText);
